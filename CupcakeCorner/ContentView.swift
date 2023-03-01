@@ -14,6 +14,7 @@ class User: ObservableObject, Codable {
     
     @Published var name = "Matheus Viana"
     
+    // Better than UserDefaults
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
