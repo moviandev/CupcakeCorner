@@ -34,6 +34,11 @@ struct ContentView: View {
     }
     
     func loadData() async {
+        guard let url = URL(string: "https://itunes.apple.com/search?term=cage+the+elephant&entity=song") else {
+            print("Invalid URL")
+            return
+        }
+        
         
     }
 }
