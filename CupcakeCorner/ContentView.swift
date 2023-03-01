@@ -39,6 +39,12 @@ struct ContentView: View {
             return
         }
         
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            // more code to come
+        } catch {
+            print("Invalid datas")
+        }
         
     }
 }
