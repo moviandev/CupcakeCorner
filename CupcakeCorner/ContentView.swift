@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {  
+struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        AsyncImage(url: URL(string: "https://hws.dev/img/logo.png"))
     }
 }
 
