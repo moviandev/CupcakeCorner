@@ -90,4 +90,6 @@ class Order: ObservableObject, Codable {
         city = try container.decode(String.self, forKey: .city)
         zip = try container.decode(String.self, forKey: .zip)
     }
+    
+    init() { }
 }
