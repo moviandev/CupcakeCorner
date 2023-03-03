@@ -39,6 +39,8 @@ struct CheckoutView: View {
         .navigationTitle("Check out")
         .navigationBarTitleDisplayMode(.inline)
         .alert("Thank you ❤️", isPresented: $showingConfirmation) {
+            Button("Ok") {}
+        } message:  {
             Text(confirmationMessage)
         }
     }
@@ -56,6 +58,12 @@ struct CheckoutView: View {
         
         do {
             let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
+            
+            let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
+            
+            confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupacakes is on the way!"
+            
+            showingConfirmation = true
              
         } catch {
             print("Checkout failed")
